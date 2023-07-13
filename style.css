@@ -1,0 +1,158 @@
+body {
+  background-color: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.42857143;
+  margin: 0;
+}
+
+.navbar-brand.brand {
+  margin-left: 15px;
+}
+
+#home {
+  /* min-height: 20vh; */
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  flex-direction: column;
+  position: relative;
+  padding: 0 10%;
+  margin-top: 40px;
+}
+
+#typing-heading {
+  font-size: 40px;
+  text-align: left;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+section > h2 {
+  padding: 50px 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+#about {
+  padding: 50px 0;
+  text-align: justify;
+  margin: 0 10%;
+}
+
+#about h5 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#about p {
+  margin-bottom: 10px;
+}
+
+#about p:last-child {
+  margin-bottom: 0;
+}
+
+/* #skills{
+    padding: 50px 0;
+    text-align: center;
+} */
+
+.skills-bar{
+	width: 600px;
+	border-radius: 10px;
+	padding: 25px 30px;
+}
+
+.skills-bar .bar{
+	margin: 20px 0px;
+}
+
+
+.skills-bar .bar:first-child{
+	margin-top: 0px;
+}
+
+.skills-bar .bar .info{
+	margin-bottom: 5px;
+}
+.skills-bar .bar .info span{
+	font-size: 17px;
+	font-weight: 500;
+	opacity: 0;
+	animation: showText 0.5s 1.5s linear forwards;
+}
+
+@keyframes showText{
+	100%{
+		opacity: 1;
+	}
+}
+
+.skills-bar .bar .progress-line{
+	position: relative;
+	height: 10px;
+	width:100%;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	transform: scaleX(0);
+	transform-origin: left;
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05),0px 1px rgba(255,255,255,0.8);
+	animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line span{
+	height: 100%;
+	width: 80%;
+	background: #ff944d;
+	position: absolute;
+	border-radius: 10px;
+	transform: scaleX(0);
+	transform-origin: left;
+	animation: animate 1s 1s  cubic-bezier(1,0,0.5,1) forwards;
+}
+
+@keyframes animate{
+	100%{
+		transform: scaleX(1);
+	}
+
+}
+
+.progress-line.html span{
+	width: 85%;
+}
+
+.progress-line.cpp span{
+	width: 75%;
+}
+
+.progress-line.java span{
+	width: 80%;
+}
+
+.progress-line.python span{
+	width: 85%;
+}
+
+.progress-line.mysql span{
+	width: 74%;
+}
+
+.progress-line.dart span{
+	width: 73%;
+}
+
+.progress-line.hack span{
+	width: 55%;
+}
+
+
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+}
