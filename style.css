@@ -63,7 +63,6 @@ h2 {
 } */
 
 .skills-bar{
-	width: 600px;
 	border-radius: 10px;
 	padding: 25px 30px;
 }
@@ -150,6 +149,87 @@ h2 {
 	width: 55%;
 }
 
+#projects {
+	padding: 50px 0;
+	text-align: center;
+  }
+  
+  #projects h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+  }
+  
+  .project-container {
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+  }
+  
+  .project-item {
+	flex: 0 0 100%;
+	max-width: 300px;
+	margin: 0 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 20px;
+	transition: transform 0.3s ease;
+  }
+ 
+.skill-container{
+	display: flex;
+	justify-content: center;
+}
+  
+  .project-image img {
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+  }
+  
+  .project-details h3 {
+	font-size: 18px;
+	margin-top: 10px;
+  }
+  
+  .project-details p {
+	margin-top: 10px;
+	color: #888;
+  }
+  
+  .project-details .btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .project-details .btn:hover {
+	background-color: #0056b3;
+  }
+  
+  .controls {
+	margin-top: 20px;
+	text-align: center;
+  }
+  
+  .controls button {
+	margin: 0 10px;
+	padding: 5px 10px;
+	font-size: 18px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+  }
+  
+  .controls button:hover {
+	background-color: #0056b3;
+  }
+  
 
 footer {
   background-color: #f8f9fa;
