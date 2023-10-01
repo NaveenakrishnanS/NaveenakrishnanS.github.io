@@ -11,7 +11,6 @@ import { HomeModule } from './home/home.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { SwapiPeopleModule } from './swapi-people/swapi-people.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { SwapiPeopleModule } from './swapi-people/swapi-people.module';
     ContactModule,
     BrowserAnimationsModule,
     FormsModule,
-    SwapiPeopleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
