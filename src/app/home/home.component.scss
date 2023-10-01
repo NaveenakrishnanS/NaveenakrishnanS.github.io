@@ -1,0 +1,38 @@
+
+.main {
+  h1,h2{
+    font-weight: 550;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+  }
+}
+.main_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.main2 {
+  margin-right: 3rem;
+  .image {
+    height: 12rem;
+    width: 10rem;
+  }
+}
+
+
+.logo {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  img {
+    height: 3rem;
+  }
+}
+
+.detail{
+  font-size: 24px;
+  margin-top: 2rem;
+  text-align: center;
+  padding-bottom: 10px;
+}

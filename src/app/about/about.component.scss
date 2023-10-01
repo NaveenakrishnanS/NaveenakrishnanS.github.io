@@ -1,0 +1,22 @@
+h2{
+  font-size: 24px;
+  margin-top: 2rem;
+}
+
+.about {
+  text-align: center;
+  color: #ffbf00; //amber
+}
+
+#details {
+  font-size: 16px;
+  line-height: 1.5;
+  p {
+    margin-bottom: 1rem;
+    color: black;
+    text-align: justify;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 0.5rem;
+  }
+}

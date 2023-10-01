@@ -1,0 +1,13 @@
+<div class="skills">
+  <h2>Skills</h2>
+  <div id="skills">
+    <div *ngFor="let skillset of skillsets; let i = index">
+      <span>{{ skillset.skill }}<br /></span>
+      <mat-progress-bar
+        color="secondary"
+        mode="determinate"
+        value="{{ skillset.value }}"
+      ></mat-progress-bar>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+
+.navbar,
+.navbar a.navbar-brand,
+.navbar ul.nav li.nav-item a.nav-link {
+  color: #ffbf00; //amber
+}
+
+.navbar ul.nav li.nav-item a.nav-link {
+  cursor: pointer;
+  font-size: medium;
+  font-weight: 500;
+  &:hover {
+    color: purple;
+    background-color: #fff;
+  }
+  
+}
+li{
+    &.active {
+        background-color: #fff;
+      }
+}

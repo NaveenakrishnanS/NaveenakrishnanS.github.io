@@ -1,0 +1,27 @@
+<h2 class="projects-heading">Projects</h2>
+<div class="projects">
+  <!-- <div>
+    <ul>
+      <li routerLinkActive="active"><a routerLink="home">Home</a></li>
+      <li routerLinkActive="active"> <a routerLink="about">About</a></li>
+      <li routerLinkActive="active"><a routerLink="dashboard">dashboard</a></li>
+      <li routerLinkActive="active"><a routerLink="contact">Contact</a></li>
+    </ul>
+  </div> -->
+  <div class="card" *ngFor="let title of titles; let i = index">
+    <mat-card class="custom-card">
+      <mat-card-header>
+        <mat-card-title class="custom-card-title">
+          {{ title }}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="custom-card-content">
+        {{ contents[i] }}
+      </mat-card-content>
+      <mat-card-actions class="custom-card-actions">
+        <button mat-raised-button color="accent">Learn More</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<br>

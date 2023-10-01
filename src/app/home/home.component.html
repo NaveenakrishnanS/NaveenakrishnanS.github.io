@@ -1,0 +1,24 @@
+<div class="main_container">
+  <div class="main">
+    <h1>I AM <br /><br />NAVEENAKRISHNAN.S</h1>
+    <ng-container *ngFor="let role of roles; let i = index">
+      <h2 *ngIf="i === currentIndex">{{ role | uppercase }}</h2>
+    </ng-container>
+    <br>
+    <div>
+      <div class="logo"(click)="OnClicking($event)" >
+        <img src="../assets/gmail_logo.png" alt="gmail">
+        <img src="../assets/github_logo.png" alt="github">
+        <img src="../assets/linkedin_logo.png" alt="linkedin">
+      </div>
+      <div class="detail" [ngSwitch]="value">
+        <div *ngSwitchCase="'gmail'"><a href="mailto:snaveenakrishnan@gmail.com"> E-Mail me!</a></div>
+        <div *ngSwitchCase="'linkedin'">LinkedIn: <a href="https://in.linkedin.com/in/naveenakrishnan-s-a72432192">Naveenakrishnan S</a></div>
+        <div *ngSwitchCase="'github'">Github: <a href ="https://github.com/NaveenakrishnanS">NaveenakrishnanS</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="main2">
+    <img class="image" src="../assets/photo.png" alt="photo" />
+  </div>
+</div>
