@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Naveenakrishnan S — Software Engineer specializing in Java, Spring Boot, Python, FastAPI, and backend systems.">
+<title>Naveenakrishnan S — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<div class="bg-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+<div class="noise-overlay"></div>
+
+<!-- Navigation -->
+<div class="nav-wrapper" id="navWrapper">
+  <nav class="nav">
+    <div class="nav-logo" onclick="scrollToSection('hero')">N<span class="dot">.</span></div>
+    <div class="nav-links" id="navLinks">
+      <a class="nav-link active" onclick="scrollToSection('about')">About</a>
+      <a class="nav-link" onclick="scrollToSection('skills')">Skills</a>
+      <a class="nav-link" onclick="scrollToSection('experience')">Experience</a>
+      <a class="nav-link" onclick="scrollToSection('projects')">Projects</a>
+      <a class="nav-link" onclick="scrollToSection('education')">Education</a>
+      <button class="nav-cta" onclick="scrollToSection('contact')">Get in Touch</button>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">&#9776;</button>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <span class="hero-eyebrow-text">Open to Opportunities</span>
+      </div>
+      <h1 class="hero-title">
+        Building<br>
+        <span class="gradient">Production-Grade</span><br>
+        Backend Systems
+      </h1>
+      <p class="hero-desc">
+        Software engineer with 3+ years designing and shipping APIs, microservices, and integration layers across enterprise-scale systems. Java, Spring Boot, Python &mdash; and the discipline to make them work at scale.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToSection('contact')">
+          Let's Talk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-secondary" onclick="scrollToSection('experience')">
+          View Experience
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt;200ms</div>
+          <div class="stat-label">API Response Times</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">MC-I</div>
+          <div class="stat-label">MuleSoft Certified</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">E2E</div>
+          <div class="stat-label">Full Backend Lifecycle</div>
+        </div>
+        <div class="stat-card featured">
+          <div class="stat-number">&#9889;</div>
+          <div class="stat-label">Java &middot; Spring Boot &middot; Python &middot; FastAPI &middot; MuleSoft &middot; REST APIs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">// About</div>
+      <h2 class="section-title">Engineer Who <span class="gradient">Ships</span></h2>
+      <p class="section-desc">Not just code &mdash; production systems that handle real traffic, real transactions, and real consequences.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal reveal-delay-1">
+        <p>I'm a backend-focused software engineer based in <strong>Chennai, India</strong>, with hands-on experience building APIs and microservices that serve enterprise clients. My work sits at the intersection of <strong>backend development and systems integration</strong> &mdash; designing services in Java/Spring Boot and Python/FastAPI, wiring them into larger architectures, and making sure they perform under pressure.</p>
+        <p>I've independently designed and shipped tools &mdash; from an <strong>NLP-powered synthetic data generator</strong> to <strong>real-time streaming systems</strong> &mdash; and I've contributed to integration layers that process live transactions. I care about clean architecture, measurable outcomes, and writing code that the next person can actually maintain.</p>
+      </div>
+      <div class="about-highlights reveal reveal-delay-2">
+        <div class="highlight-card">
+          <span class="highlight-icon">&#9881;&#65039;</span>
+          <div class="highlight-title">Backend Systems</div>
+          <div class="highlight-desc">Spring Boot microservices, REST APIs, authentication layers, and real-time data pipelines</div>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon">&#128279;</span>
+          <div class="highlight-title">Integration</div>
+          <div class="highlight-desc">MuleSoft APIs, standards-based architecture, XML/XSLT transformation, multi-system orchestration</div>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon">&#129504;</span>
+          <div class="highlight-title">Data & AI</div>
+          <div class="highlight-desc">BERT transformers, NLTK, synthetic test data generation with schema-aware pipelines</div>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon">&#128640;</span>
+          <div class="highlight-title">DevOps & QA</div>
+          <div class="highlight-desc">Docker, Azure CI/CD, JMeter load testing, Postman automation suites</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Skills -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">// Tech Stack</div>
+      <h2 class="section-title">Tools of the <span class="gradient">Trade</span></h2>
+      <p class="section-desc">The technologies I work with daily and the ones I've shipped production code in.</p>
+    </div>
+    <div class="skills-categories">
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">&#128187;</div>
+          <div class="skill-cat-name">Languages</div>
+        </div>
+        <div class="skill-items">
+          <span class="skill-item">Java</span>
+          <span class="skill-item">Python</span>
+          <span class="skill-item">SQL</span>
+          <span class="skill-item">Dart</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">&#127959;&#65039;</div>
+          <div class="skill-cat-name">Frameworks & Libraries</div>
+        </div>
+        <div class="skill-items">
+          <span class="skill-item">Spring Boot</span>
+          <span class="skill-item">Spring Security</span>
+          <span class="skill-item">FastAPI</span>
+          <span class="skill-item">JWT Auth</span>
+          <span class="skill-item">Flutter</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-3">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">&#128268;</div>
+          <div class="skill-cat-name">Integration & Data</div>
+        </div>
+        <div class="skill-items">
+          <span class="skill-item">MuleSoft</span>
+          <span class="skill-item">BIAN Standard</span>
+          <span class="skill-item">XML/XSLT</span>
+          <span class="skill-item">MySQL</span>
+          <span class="skill-item">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">&#129514;</div>
+          <div class="skill-cat-name">Testing & QA</div>
+        </div>
+        <div class="skill-items">
+          <span class="skill-item">Apache JMeter</span>
+          <span class="skill-item">Postman</span>
+          <span class="skill-item">API Automation</span>
+          <span class="skill-item">Load Testing</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">&#129302;</div>
+          <div class="skill-cat-name">Data & AI</div>
+        </div>
+        <div class="skill-items">
+          <span class="skill-item">NLTK</span>
+          <span class="skill-item">BERT Transformers</span>
+          <span class="skill-item">Faker</span>
+          <span class="skill-item">NLP Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-3">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon">&#9729;&#65039;</div>
+          <div class="skill-cat-name">DevOps & Tools</div>
+        </div>
+        <div class="skill-items">
+          <span class="skill-item">Docker</span>
+          <span class="skill-item">Maven</span>
+          <span class="skill-item">Git / GitHub / GitLab</span>
+          <span class="skill-item">Azure CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Experience — REFINED: generic but impactful, no internal specifics -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">// Experience</div>
+      <h2 class="section-title">Where I've <span class="gradient">Built</span></h2>
+      <p class="section-desc">Production systems, enterprise integrations, and developer tools that teams depend on.</p>
+    </div>
+    <div class="experience-timeline">
+
+      <!-- Current Role -->
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-meta">
+            <div>
+              <div class="exp-role">Software Engineer</div>
+              <div class="exp-company">Clarium Managed Services</div>
+            </div>
+            <div class="exp-duration">Apr 2025 &ndash; Present</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Own backend delivery across Spring Boot microservices and MuleSoft integration layers for an enterprise client in the financial services domain.</li>
+            <li>Design and maintain high-throughput RESTful APIs, consistently achieving sub-200ms response times in production environments.</li>
+            <li>Optimise multi-service aggregation endpoints, reducing end-to-end orchestration latency to under 1 second.</li>
+            <li>Drive API regression and performance testing with JMeter and Postman scripting, proactively catching bottlenecks before releases.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Spring Boot</span>
+            <span class="exp-tag">MuleSoft</span>
+            <span class="exp-tag">REST APIs</span>
+            <span class="exp-tag">JMeter</span>
+            <span class="exp-tag">Postman</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Previous Role -->
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-meta">
+            <div>
+              <div class="exp-role">Software Engineer Trainee</div>
+              <div class="exp-company">Clarium Managed Services</div>
+            </div>
+            <div class="exp-duration">Dec 2023 &ndash; Apr 2025</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Delivered Spring Boot backend services and MuleSoft API flows on an enterprise engagement, working within a standards-based integration architecture.</li>
+            <li>Architected a Spring Boot proof-of-concept for XML ingestion and XSLT transformation &mdash; adopted as the foundation for a production integration pipeline.</li>
+            <li>Solely designed and shipped a Python-based Synthetic Test Data Generator using BERT, NLTK, and Faker, eliminating dependency on production data across all testing workflows.</li>
+            <li>Built real-time log streaming via Server-Sent Events (SSE) on an internal execution engine, replacing polling with instant feedback for CLI consumers.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Spring Boot</span>
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">BERT / NLTK</span>
+            <span class="exp-tag">MuleSoft</span>
+            <span class="exp-tag">XML/XSLT</span>
+            <span class="exp-tag">SSE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Early Role -->
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-meta">
+            <div>
+              <div class="exp-role">Software Engineer Trainee</div>
+              <div class="exp-company">Clarium Managed Services</div>
+            </div>
+            <div class="exp-duration">Jun 2023 &ndash; Dec 2023</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Built Dashboard APIs from scratch in Spring Boot, aggregating real-time data from multiple sources with sub-second response times.</li>
+            <li>Designed and owned REST APIs for a SaaS platform, enabling programmatic orchestration of distributed test pipelines via CLI.</li>
+            <li>Implemented JWT-based authentication and role-based access control using Spring Security across all platform endpoints.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Spring Boot</span>
+            <span class="exp-tag">Spring Security</span>
+            <span class="exp-tag">JWT</span>
+            <span class="exp-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internship -->
+      <div class="exp-item reveal reveal-delay-3">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-meta">
+            <div>
+              <div class="exp-role">Software Engineer Intern</div>
+              <div class="exp-company">Clarium Managed Services</div>
+            </div>
+            <div class="exp-duration">Feb 2023 &ndash; Jun 2023</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Built Java backend prototypes including Spring Boot REST APIs through a structured engineering onboarding programme.</li>
+            <li>Transitioned to the production engineering team within 5 months based on delivery quality and technical aptitude.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Java</span>
+            <span class="exp-tag">Spring Boot</span>
+            <span class="exp-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contract -->
+      <div class="exp-item reveal reveal-delay-4">
+        <div class="exp-dot"></div>
+        <div class="exp-card">
+          <div class="exp-meta">
+            <div>
+              <div class="exp-role">Mobile Application Developer</div>
+              <div class="exp-company">Hyginiee &middot; Contract</div>
+            </div>
+            <div class="exp-duration">Jan 2023 &ndash; Mar 2023</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Independently built a customer-facing Android app using Flutter (MVVM) and Firebase &mdash; featuring real-time order tracking, live status updates, and end-to-end booking flow.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Flutter</span>
+            <span class="exp-tag">Firebase</span>
+            <span class="exp-tag">Firestore</span>
+            <span class="exp-tag">Android</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Projects -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">// Projects</div>
+      <h2 class="section-title">Things I <span class="gradient">Built</span></h2>
+      <p class="section-desc">Key deliverables and side projects that went beyond the ticket.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-label">NLP / Data Engineering</div>
+        <div class="project-name">Synthetic Test Data Generator</div>
+        <div class="project-desc">End-to-end tool using BERT transformers, NLTK, and Faker to generate realistic, schema-aware mock datasets. Eliminated dependency on production data for testing.</div>
+        <div class="project-stack">
+          <span class="project-stack-item">Python</span>
+          <span class="project-stack-item">BERT</span>
+          <span class="project-stack-item">NLTK</span>
+          <span class="project-stack-item">Faker</span>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-label">Backend / Integration</div>
+        <div class="project-name">XML Ingestion & XSLT Engine</div>
+        <div class="project-desc">Spring Boot proof-of-concept for ingesting and transforming industry-standard financial file formats. Adopted as the architectural base for a production integration layer.</div>
+        <div class="project-stack">
+          <span class="project-stack-item">Java</span>
+          <span class="project-stack-item">Spring Boot</span>
+          <span class="project-stack-item">XML/XSLT</span>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-label">Research / Mobile</div>
+        <div class="project-name">Hybrid Cryptography Secure Chat</div>
+        <div class="project-desc">Published research on a novel hybrid encryption scheme, implemented as a Flutter-based secure messaging app with Firebase backend. Best Paper Award at NCRACES'23.</div>
+        <div class="project-stack">
+          <span class="project-stack-item">Flutter</span>
+          <span class="project-stack-item">Firebase</span>
+          <span class="project-stack-item">Cryptography</span>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-4">
+        <div class="project-label">Real-Time Systems</div>
+        <div class="project-name">SSE Live Log Streaming</div>
+        <div class="project-desc">Server-Sent Events implementation on a test execution engine, streaming results in real-time to CLI consumers and replacing polling with instant feedback.</div>
+        <div class="project-stack">
+          <span class="project-stack-item">Spring Boot</span>
+          <span class="project-stack-item">SSE</span>
+          <span class="project-stack-item">REST API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Education -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">// Education & Certs</div>
+      <h2 class="section-title">Credentials & <span class="gradient">Learning</span></h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal reveal-delay-1">
+        <div class="edu-icon">&#127891;</div>
+        <div class="edu-title">B.E. Computer Science & Engineering</div>
+        <div class="edu-subtitle">S.A. Engineering College, Anna University</div>
+        <div class="edu-period">Jun 2019 &ndash; Apr 2023 &middot; Chennai</div>
+        <div class="edu-detail">Published research on hybrid multiple cryptography. Won Best Paper Award at NCRACES'23 &mdash; a national conference on communications, electronics, and signal processing.</div>
+      </div>
+      <div class="edu-card reveal reveal-delay-2">
+        <div class="edu-icon">&#127941;</div>
+        <div class="edu-title">MuleSoft Certified Developer I</div>
+        <div class="edu-subtitle">Salesforce / MuleSoft</div>
+        <div class="edu-period">Certified</div>
+        <div class="edu-detail">Industry certification validating expertise in MuleSoft Anypoint Platform &mdash; API design, integration development, and DataWeave transformation.</div>
+        <div class="edu-badge">&#10003; Verified Credential</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner reveal">
+      <div class="section-eyebrow">// Contact</div>
+      <h2 class="contact-title">Let's <span class="gradient">Connect</span></h2>
+      <p class="contact-desc">Open to remote opportunities and interesting backend challenges. Drop me a line &mdash; I respond fast.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:snaveenakrishnan@gmail.com">
+          <span class="contact-link-icon">&#9993;&#65039;</span>
+          snaveenakrishnan@gmail.com
+        </a>
+        <a class="contact-link" href="tel:+917200068446">
+          <span class="contact-link-icon">&#128241;</span>
+          +91 72000 68446
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/naveenakrishnan-s" target="_blank" rel="noopener">
+          <span class="contact-link-icon">&#128188;</span>
+          LinkedIn
+        </a>
+        <a class="contact-link" href="https://github.com/NaveenakrishnanS" target="_blank" rel="noopener">
+          <span class="contact-link-icon">&#128025;</span>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-line"></div>
+  <p class="footer-text">Designed & built by <span class="gradient">Naveenakrishnan S</span> &middot; 2026</p>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
