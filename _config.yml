@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll) settings. The site is plain static HTML; this file only keeps
+# repo-only files out of the published site. Dot-folders like .claude/ are skipped by default.
+exclude:
+  - README.md
+  - CLAUDE.md
+  - brand-kit/
+  - tools/
+  - tests/
