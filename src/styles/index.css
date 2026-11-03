@@ -1,0 +1,705 @@
+/* Scan only src/. The vendored .claude/skills markdown would otherwise bloat the CSS. */
+@import 'tailwindcss' source('..');
+
+/* ------------------------------------------------------------------
+   Design tokens: single source of truth for color, type, shape and motion.
+
+   Theme: one dark page (ink). Cream is the single light tone: text on ink,
+   and the surface of the one deliberate light "sheet" (Expertise).
+   Hero follows docs/references/marcus-bennet.md; other sections follow
+   docs/references/jack-sections.md (design logic only).
+   ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #0c0c0c;
+  --color-ink-2: #141414;
+  --color-ink-fg: #efeee9;
+  --color-ink-muted: #908f8a;
+  --color-ink-line: rgb(239 238 233 / 0.14);
+
+  /*
+    Card edges: one system, two documented weights, so every card speaks the same border language.
+    Primary = project evidence cards (the Jack reference's 2px light card edge).
+    Secondary = supporting tiles (Now building), quieter but still a real edge on touch devices,
+    where the spotlight never runs. Measured against the ink page (#0c0c0c):
+      card-line   = cream at 80% -> #c2c1bd, 10.83:1
+      card-line-2 = cream at 38% -> #626260, 3.20:1 (above the 3:1 non-text minimum, WCAG 1.4.11)
+  */
+  --color-card-line: rgb(239 238 233 / 0.8);
+  --color-card-line-2: rgb(239 238 233 / 0.38);
+
+  /* Light sheet (cream). */
+  --color-paper: #efeee9;
+  --color-paper-fg: #0c0c0c;
+  --color-paper-muted: #55544f;
+  --color-paper-line: rgb(12 12 12 / 0.15);
+
+  /* The one accent. Locked: focus rings, status, selection. Never decorative. */
+  --color-accent: #d9481c;
+
+  /* Geist, self-hosted via @fontsource-variable (imported in main.tsx). System fallbacks only. */
+  --font-sans: 'Geist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Huge centered section headings (Jack). */
+  --text-mega: clamp(3rem, 12vw, 10rem);
+  --text-mega--line-height: 0.9;
+  --text-mega--letter-spacing: -0.045em;
+  /* Huge row numbers (Jack services / project cards). */
+  --text-number: clamp(3rem, 10vw, 8.75rem);
+  --text-number--line-height: 0.85;
+  --text-number--letter-spacing: -0.05em;
+  --text-title: clamp(1.375rem, 2.4vw, 2.125rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.02em;
+  --text-lede: clamp(1rem, 1.6vw, 1.25rem);
+  --text-lede--line-height: 1.55;
+  --text-statement: clamp(1.25rem, 2.4vw, 2rem);
+  --text-statement--line-height: 1.35;
+  --text-statement--letter-spacing: -0.015em;
+  --text-contact: clamp(1.75rem, 5.5vw, 4.5rem);
+  --text-contact--line-height: 1.1;
+  --text-contact--letter-spacing: -0.035em;
+  --text-menu: 2.25rem;
+  --text-menu--line-height: 1.05;
+  --text-menu--letter-spacing: -0.03em;
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.12em;
+  --text-ui: 0.9375rem;
+  /* The wordmark (hero brand link and fixed-bar brand link): one size, one tracking, both places. */
+  --text-wordmark: 1.0625rem;
+  --text-wordmark--line-height: 1.2;
+  --text-wordmark--letter-spacing: -0.01em;
+
+  /*
+    Shape rule (one documented system):
+    sheets = rounded top 40px (sm 48 / md 56 via utilities), cards = 32px,
+    media inside cards = 20px, interactive pills = full.
+  */
+  --radius-sheet: 2.5rem;
+  --radius-sheet-md: 3.5rem;
+  --radius-card: 2rem;
+  --radius-media: 1.25rem;
+
+  /* Motion curves from the references. */
+  --ease-rise: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-line: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-reveal: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+:root {
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --shell-max: 90rem;
+  --section-y: clamp(5rem, 12vw, 8rem);
+  --nav-h: 4rem;
+  /* Sheet overlap: how far a sheet is pulled over the one before it. */
+  --sheet-pull: clamp(2.5rem, 4vw, 3.5rem);
+  /* z-index scale (systemic layers only). */
+  --z-sheet: 10;
+  --z-portrait: 20;
+  --z-dim: 25;
+  --z-chrome: 30;
+  --z-nav: 40;
+  --z-drawer: 50;
+  --z-toggle: 60;
+  --z-grain: 65;
+  --z-skip: 70;
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-ink);
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-ink-fg);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Ink on the accent, not cream: 4.56:1 against the accent, where cream measures only 3.69:1. */
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .section-y {
+    padding-block: var(--section-y);
+  }
+
+  /* Small uppercase label. Rationed: drawer group labels and card metadata only. */
+  .meta {
+    font-size: var(--text-meta);
+    line-height: var(--text-meta--line-height);
+    letter-spacing: var(--text-meta--letter-spacing);
+    text-transform: uppercase;
+  }
+
+  /* Huge centered heading with the subtle vertical tone shift (Jack .hero-heading, neutral). */
+  .mega-tone {
+    background: linear-gradient(180deg, #74736e 0%, var(--color-ink-fg) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--color-ink-fg);
+  }
+
+  /* Rounded-top sheet pulled over the previous section. */
+  .sheet {
+    position: relative;
+    z-index: var(--z-sheet);
+    margin-top: calc(var(--sheet-pull) * -1);
+    border-top-left-radius: var(--radius-sheet);
+    border-top-right-radius: var(--radius-sheet);
+  }
+  @media (min-width: 48rem) {
+    .sheet {
+      border-top-left-radius: var(--radius-sheet-md);
+      border-top-right-radius: var(--radius-sheet-md);
+    }
+  }
+
+  /* Pills (sections only; the hero has none). */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    min-height: 3rem;
+    padding: 0 1.75rem;
+    border-radius: 9999px;
+    border: 2px solid currentColor;
+    font-size: var(--text-ui);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease,
+      transform var(--dur-fast) ease;
+  }
+  .pill:active {
+    transform: scale(0.98);
+  }
+  .pill-ghost {
+    border-color: var(--color-ink-fg);
+    color: var(--color-ink-fg);
+  }
+  .pill-ghost:hover {
+    background: rgb(239 238 233 / 0.1);
+  }
+  .pill-solid {
+    background: var(--color-ink-fg);
+    border-color: var(--color-ink-fg);
+    color: var(--color-ink);
+  }
+  .pill-solid:hover {
+    background: transparent;
+    color: var(--color-ink-fg);
+  }
+
+  /* Plain text link with an opacity hover (hero chrome, nav). */
+  .link-fade {
+    transition: opacity var(--dur-base) ease;
+  }
+  .link-fade:hover {
+    opacity: 0.6;
+  }
+  /*
+    Current section: the underline carries the accent, so the one brand colour marks a real state
+    rather than decoration. Only the rule is tinted, not the label: accent text would measure
+    3.69:1 on the paper sheet. As an indicator the accent clears the 3:1 non-text minimum on every
+    surface it lands on (4.56:1 on ink, 4.30:1 on ink-2, 3.69:1 on paper).
+  */
+  .link-fade[aria-current='true'] {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.3em;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Scroll-entry reveal (Jack FadeIn). Visible by default; JS opts elements in. */
+  .reveal[data-reveal='pending'] {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 30px), 0);
+  }
+  .reveal[data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s var(--ease-reveal),
+      transform 0.7s var(--ease-reveal);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Hero entrance choreography (Marcus / Bennet). --delay set inline. */
+  .anim-fade-in {
+    animation: fade-in 1.2s ease-out both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .anim-fade-up {
+    animation: fade-up 0.9s var(--ease-rise) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .anim-line {
+    transform-origin: left;
+    animation: line-in 1.1s var(--ease-line) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  /* The name rises out of an invisible baseline (parent must clip vertically). */
+  .anim-mask-rise {
+    animation: mask-rise 1.3s var(--ease-rise) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  /* The portrait is unveiled bottom-up like a curtain, settling from a slight push-in. */
+  .anim-curtain {
+    animation: curtain 1.6s var(--ease-line) both;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  /* Giant name marquee: two identical halves, 30s linear loop. */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee[data-paused] .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /*
+    Hero cutout: the source photo's frame crops the shoulders with straight edges, so feather the
+    sides and bottom into the ink field. Two gradients intersected = fade on three edges.
+  */
+  .portrait-fade {
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%),
+      linear-gradient(to top, transparent 0%, #000 16%);
+    mask-composite: intersect;
+  }
+
+  /*
+    Hero lighting: a studio backlight behind the subject's head separates dark hair from the dark
+    field, plus a wider warm falloff and an edge vignette. Cream-tinted to match the type.
+  */
+  .hero-light {
+    background:
+      radial-gradient(ellipse 30% 42% at 50% 34%, rgb(239 238 233 / 0.16) 0%, rgb(239 238 233 / 0.05) 45%, transparent 72%),
+      radial-gradient(ellipse 70% 60% at 50% 42%, rgb(214 196 170 / 0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 120% 90% at 50% 40%, transparent 55%, rgb(0 0 0 / 0.55) 100%),
+      var(--color-ink);
+  }
+
+  /*
+    Film grain: fixed, pointer-events-none (never on a scrolling container). Inline SVG noise, so no
+    external asset. Low opacity so it reads as texture, not dirt.
+  */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-grain);
+    pointer-events: none;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Status dots: semantic state only (project / building status). */
+  .status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    flex: none;
+  }
+  .status-dot[data-status='shipped'] {
+    background: #5fa36f;
+  }
+  .status-dot[data-status='in-progress'] {
+    background: var(--color-accent);
+  }
+  .status-dot[data-status='experimental'] {
+    box-shadow: inset 0 0 0 1.5px var(--color-accent);
+  }
+  .status-dot[data-status='planned'] {
+    box-shadow: inset 0 0 0 1.5px currentColor;
+    opacity: 0.6;
+  }
+  /* Live state: only genuinely in-progress items breathe (a ring expands and fades). */
+  .status-dot[data-status='in-progress'] {
+    position: relative;
+  }
+  .status-dot[data-status='in-progress']::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--color-accent);
+    animation: breathe 2.4s var(--ease-rise) infinite;
+  }
+
+  /* ------------------------------------------------------------------
+     Motion layer (animation pass, 2026-10-02). Pointer effects write CSS
+     variables from src/hooks/usePointerMotion.ts via rAF: no React state.
+     ------------------------------------------------------------------ */
+
+  /*
+    Hero depth parallax: name and portrait drift in opposite directions with the cursor
+    (--mx / --my in -1..1, set on the hero). Each sits on its own wrapper so it never fights the
+    entrance or scroll-exit transforms.
+  */
+  .depth-name,
+  .depth-portrait {
+    transition: transform 1.4s var(--ease-rise);
+    will-change: transform;
+  }
+  .depth-name {
+    transform: translate3d(calc(var(--mx, 0) * -22px), calc(var(--my, 0) * -8px), 0);
+  }
+  .depth-portrait {
+    transform: translate3d(calc(var(--mx, 0) * 12px), calc(var(--my, 0) * 6px), 0);
+  }
+
+  /*
+    Spotlight border card: a soft light under the cursor plus a brighter ring on the card's edge
+    (--sx / --sy in px relative to the card, set by delegated pointer tracking).
+  */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before,
+  .spotlight::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-rise);
+  }
+  /* Edge ring: a 2px band (content-box excluded) lit by a radial gradient at the cursor. */
+  .spotlight::before {
+    inset: -2px;
+    padding: 2px;
+    background: radial-gradient(260px circle at var(--sx, 50%) var(--sy, 50%), rgb(239 238 233 / 0.75), transparent 70%);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+  /* Surface light. */
+  .spotlight::after {
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(480px circle at var(--sx, 50%) var(--sy, 50%), rgb(239 238 233 / 0.06), transparent 60%);
+  }
+  .spotlight[data-lit]::before,
+  .spotlight[data-lit]::after {
+    opacity: 1;
+  }
+
+  /* Underline that draws in from the left on hover / focus (background-size, no layout shift). */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.6s var(--ease-rise);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 2px;
+  }
+
+  /* Scroll-progress hairline in the fixed bar. Hidden unless scroll timelines are supported. */
+  .scroll-progress {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Scroll-driven effects (Jack). Native CSS scroll timelines, no JS scroll
+   listeners. Browsers without support, and reduced-motion users, get the
+   final static state.
+   ------------------------------------------------------------------ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Character-by-character statement reveal: opacity 0.2 -> 1. */
+    .char-reveal {
+      view-timeline-name: --statement;
+    }
+    .char-reveal .char {
+      opacity: 0.2;
+      animation: char-in linear both;
+      animation-timeline: --statement;
+      animation-range: cover calc(20% + var(--p) * 45%) cover calc(25% + var(--p) * 45%);
+    }
+
+    /*
+      Hero exit: as the hero scrolls away, the portrait drifts slower than the page (parallax),
+      the name lifts and fades, and the scene dims into the next section.
+    */
+    .hero-timeline {
+      view-timeline-name: --hero;
+    }
+    .hero-exit-portrait,
+    .hero-exit-marquee,
+    .hero-exit-dim {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .hero-exit-portrait {
+      animation-name: hero-portrait-out;
+    }
+    .hero-exit-marquee {
+      animation-name: hero-marquee-out;
+    }
+    .hero-exit-dim {
+      animation-name: hero-dim-in;
+    }
+
+    /* Sticky stacking cards: each card shrinks while the next one arrives. */
+    @media (min-width: 48rem) {
+      .stack-card[data-shrink] {
+        animation: card-shrink linear both;
+        animation-range: entry 0% contain 0%;
+      }
+    }
+
+    /* Chapter titles: each huge section heading rises and settles as it scrolls into view. */
+    .chapter-title {
+      animation: chapter-in linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 38%;
+    }
+
+    /* Dividers draw left to right as their row enters; numbers slide in beside them. */
+    .rule-draw {
+      transform-origin: left;
+      animation: rule-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    .num-slide {
+      animation: num-slide linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+
+    /* Project evidence: screenshots and frames scale up into place. */
+    .media-in {
+      animation: media-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+/* Orientation, not decoration: progress also works under reduced motion (it never moves by itself). */
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+/* Reduced motion and coarse pointers: pointer-driven depth and spotlight stay off. */
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .depth-name,
+  .depth-portrait {
+    transform: none;
+  }
+  .spotlight::before,
+  .spotlight::after {
+    display: none;
+  }
+}
+
+/*
+  Stack fallback: a card would not fit its sticky slot, so render a plain list.
+  Unlayered on purpose: it must beat the `md:sticky` utility and the scroll-timeline rule above.
+*/
+.stack-list[data-stack='off'] .stack-card {
+  position: static;
+  animation: none;
+  transform: none;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes chapter-in {
+  from {
+    opacity: 0.12;
+    transform: translateY(16%) scale(0.94);
+  }
+}
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes num-slide {
+  from {
+    opacity: 0.15;
+    transform: translateX(-10%);
+  }
+}
+/* Scale only: fading the frame would leave its caption below contrast until scrolled to. */
+@keyframes media-in {
+  from {
+    transform: scale(0.92);
+  }
+}
+@keyframes grow-x {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes mask-rise {
+  from {
+    transform: translateY(108%);
+  }
+}
+@keyframes curtain {
+  /* Starts partly open (lower ~45% visible) so the portrait paints immediately: it is the LCP
+     element, and a fully clipped start would hold LCP back by the whole reveal. */
+  from {
+    clip-path: inset(55% -10% 0 -10%);
+    transform: scale(1.05);
+  }
+  /* Ends beyond the box (negative top/sides): the portrait deliberately rises above its stage. */
+  to {
+    clip-path: inset(-40% -10% 0 -10%);
+    transform: none;
+  }
+}
+@keyframes line-in {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes char-in {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hero-portrait-out {
+  to {
+    transform: translateY(6vh) scale(0.96);
+  }
+}
+@keyframes hero-marquee-out {
+  to {
+    transform: translateY(-12vh);
+    opacity: 0.15;
+  }
+}
+@keyframes hero-dim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+@keyframes card-shrink {
+  to {
+    transform: scale(var(--shrink-to, 1));
+  }
+}
+
+/* Print: show everything, drop chrome and decorative layers. */
+@media print {
+  .reveal,
+  .anim-fade-in,
+  .anim-fade-up,
+  .char {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .site-chrome,
+  .marquee,
+  .hero-rule,
+  .grain,
+  .hero-exit-dim {
+    display: none !important;
+  }
+  .stack-card {
+    position: static !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    animation-delay: 0ms !important;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  /* Reveals hide via opacity, not animation, so the duration overrides above cannot restore them.
+     Reset them here as well as in Reveal.tsx, so content never depends on JS running. */
+  .reveal,
+  .reveal[data-reveal='pending'] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

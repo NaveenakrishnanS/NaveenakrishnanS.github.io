@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#0c0c0c" />
+    <title>Page not found | Naveenakrishnan S</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --ink: #0c0c0c;
+        --fg: #efeee9;
+        --muted: #908f8a;
+        --accent: #d9481c;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        background: var(--ink);
+        color: var(--fg);
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        min-height: 100dvh;
+        display: grid;
+        place-content: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      h1 {
+        font-size: clamp(5rem, 22vw, 12rem);
+        font-weight: 900;
+        line-height: 0.85;
+        letter-spacing: -0.05em;
+      }
+      p {
+        color: var(--muted);
+        font-size: 1.0625rem;
+      }
+      a {
+        justify-self: center;
+        display: inline-flex;
+        align-items: center;
+        min-height: 3rem;
+        padding: 0 1.75rem;
+        border: 2px solid var(--fg);
+        border-radius: 9999px;
+        color: var(--fg);
+        font-size: 0.9375rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      a:hover {
+        background: rgb(239 238 233 / 0.1);
+      }
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>404</h1>
+      <p>This page doesn’t exist. The portfolio is one page, and it’s right here.</p>
+      <a href="/">Back to the portfolio</a>
+    </main>
+  </body>
+</html>

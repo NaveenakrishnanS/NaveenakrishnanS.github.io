@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+
+# Original / master photos: kept locally, not deployed and not committed (privacy).
+design/source/
