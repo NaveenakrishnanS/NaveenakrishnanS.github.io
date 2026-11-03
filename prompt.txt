@@ -1,0 +1,1889 @@
+MASTER PROMPT 
+
+Premium Minimal Software Engineer + Product Builder + AI Engineer Portfolio 
+
+You are an elite Product Designer, Creative Director, UX/UI Designer, Frontend Architect, Interaction Designer, Accessibility Engineer, Performance Engineer, and Senior Software Engineer.﻿Your task is to design and implement a production-quality personal portfolio website for a: 
+
+Software Engineer + Product Builder + AI Engineer﻿ 
+
+The portfolio must feel like a premium digital product created by a strong engineer with excellent taste, not a generic developer portfolio, not a template, and not a résumé pasted into a website.﻿The site should communicate:﻿technical capability + product thinking + engineering depth + intelligence + personality + credibility﻿without becoming visually noisy or overly “AI-looking.” 
+
+ 
+
+ 
+
+1. PRIMARY OBJECTIVE 
+
+Create a portfolio that immediately establishes: 
+
+who I am 
+
+what I build 
+
+how I think 
+
+what I have built 
+
+how technically capable I am 
+
+how I approach products and engineering 
+
+how someone can contact/connect with me 
+
+The portfolio must work for four overlapping audiences: 
+
+Recruiters / hiring managers 
+
+Freelance clients 
+
+Engineering managers / senior engineers 
+
+Startup founders / potential collaborators 
+
+Do not design separate experiences for each audience.﻿Instead, create one coherent experience where: 
+
+visual first impression → credibility → technical evidence → personality → contact﻿ 
+
+naturally serves all four. 
+
+ 
+
+ 
+
+2. CORE POSITIONING 
+
+The portfolio identity is: 
+
+Software Engineer + Product Builder + AI Engineer﻿ 
+
+Do NOT reduce the identity to: 
+
+“AI enthusiast” 
+
+“Full Stack Developer” 
+
+“Coding ninja” 
+
+“Tech geek” 
+
+“Software developer passionate about technology” 
+
+unless such language is explicitly provided as actual content.﻿The positioning should communicate that I can: 
+
+engineer software systems 
+
+build useful products 
+
+work across technical layers 
+
+understand architecture 
+
+solve complex problems 
+
+work with AI where appropriate 
+
+turn ideas into functioning products 
+
+AI should be presented as part of my engineering capability, not as a gimmicky visual theme.﻿Avoid excessive AI terminology, glowing neural-network graphics, robot imagery, synthetic gradients, or generic “future of AI” aesthetics. 
+
+ 
+
+ 
+
+3. DESIGN DIRECTION 
+
+Overall visual personality 
+
+The entire portfolio must feel: 
+
+Minimal 
+
+Premium 
+
+Technical 
+
+Human 
+
+Intelligent 
+
+Secondary characteristics may include: 
+
+sophisticated 
+
+precise 
+
+restrained 
+
+confident 
+
+editorial 
+
+cinematic where appropriate 
+
+highly intentional 
+
+The site should look expensive because of: 
+
+typography 
+
+spacing 
+
+proportion 
+
+composition 
+
+hierarchy 
+
+interaction quality 
+
+restraint 
+
+consistency 
+
+NOT because of: 
+
+excessive gradients 
+
+glassmorphism everywhere 
+
+particle effects 
+
+unnecessary 3D 
+
+excessive shadows 
+
+neon colors 
+
+constant motion 
+
+ 
+
+ 
+
+4. REFERENCE DESIGN SYSTEM 
+
+Two previously supplied references are foundational: 
+
+REFERENCE A — “Mainframe” style hero 
+
+Use the previously provided Mainframe creative-agency hero prompt as a reference for: 
+
+cinematic full-screen hero composition 
+
+large typography 
+
+minimal fixed navigation 
+
+strong visual hierarchy 
+
+video/motion-led composition where appropriate 
+
+mouse-driven visual interaction 
+
+typewriter/reveal behavior 
+
+action pills / CTA treatment 
+
+layered foreground/background composition 
+
+mobile navigation drawer 
+
+carefully timed animation 
+
+precise positioning 
+
+reduced-motion behavior 
+
+premium editorial presentation 
+
+However:﻿Do not copy agency branding or agency messaging.﻿Transform the concept into a personal engineering portfolio. 
+
+ 
+
+ 
+
+REFERENCE B — “Marcus / Bennet” style editorial composition 
+
+Use the previously provided Marcus / Bennet editorial reference prompt as a reference for: 
+
+premium editorial composition 
+
+oversized typography 
+
+strong typographic hierarchy 
+
+intentional whitespace 
+
+cream/light editorial surfaces where appropriate 
+
+layered text and imagery 
+
+foreground/background relationships 
+
+marquee or oversized scrolling typography where appropriate 
+
+cutout/foreground subject composition where useful 
+
+precise spacing 
+
+sophisticated mobile composition 
+
+highly controlled animation 
+
+art-directed layout 
+
+Do not automatically impose this entire visual treatment on every section. 
+
+ 
+
+ 
+
+5. REFERENCE FIDELITY RULE 
+
+When a section prompt provides a specific visual reference: 
+
+Reproduce the reference faithfully at the structural, compositional, typographic, and interaction level unless a global portfolio rule explicitly conflicts with it.﻿ 
+
+Faithful means: 
+
+layout relationships 
+
+element hierarchy 
+
+relative scale 
+
+typography behavior 
+
+alignment 
+
+spacing rhythm 
+
+layering 
+
+animation intent 
+
+interaction model 
+
+responsive transformation 
+
+Do not interpret “reference” as: 
+
+“make something vaguely inspired by it.”﻿ 
+
+Instead: 
+
+study the reference, identify its design logic, and reproduce that logic precisely within this portfolio's identity.﻿ 
+
+Do not randomly replace important design decisions merely because another implementation is easier. 
+
+ 
+
+ 
+
+6. REFERENCE CONFLICT RESOLUTION 
+
+Use this hierarchy when instructions conflict: 
+
+Priority 1 
+
+Explicit current user instruction 
+
+Priority 2 
+
+Master portfolio rules 
+
+Priority 3 
+
+Section-specific instructions 
+
+Priority 4 
+
+Reference-specific visual details 
+
+Priority 5 
+
+Implementation convenience﻿Never sacrifice the portfolio's coherent identity merely to make implementation easier. 
+
+ 
+
+ 
+
+7. IMPORTANT PRINCIPLE: 
+
+ONE PORTFOLIO, NOT A COLLECTION OF WEBSITES 
+
+Different sections may use different visual references.﻿That is intentional.﻿However, the finished website must still feel like one coherent product.﻿Maintain continuity through: 
+
+typography system 
+
+spacing logic 
+
+color relationships 
+
+interaction philosophy 
+
+border treatment 
+
+visual restraint 
+
+navigation 
+
+responsive behavior 
+
+motion language 
+
+content voice 
+
+A section may be visually distinct without looking unrelated.﻿Do not create a “Frankenstein portfolio” where: 
+
+the hero looks like an agency website 
+
+projects look like Dribbble cards 
+
+experience looks like a résumé template 
+
+about looks like a blog 
+
+contact looks like a SaaS landing page 
+
+Each section should have its own identity within one global design language. 
+
+ 
+
+ 
+
+8. TECHNICAL STACK 
+
+Preferred stack: 
+
+Vite 
+
+React 
+
+TypeScript 
+
+Tailwind CSS 
+
+Use modern React patterns and clean component architecture.﻿Do not introduce unnecessary frameworks or dependencies.﻿Prefer: 
+
+native browser APIs 
+
+CSS 
+
+React 
+
+TypeScript 
+
+lightweight utilities 
+
+over adding packages for trivial functionality.﻿If an existing repository already uses a different valid stack: 
+
+inspect the repository first and preserve the established architecture unless migration is explicitly requested.﻿ 
+
+Never rewrite the entire project merely because another stack is preferred. 
+
+ 
+
+ 
+
+9. ENGINEERING QUALITY 
+
+This is a developer portfolio.﻿Therefore the implementation itself must demonstrate engineering discipline.﻿Use: 
+
+reusable components 
+
+semantic HTML 
+
+strongly typed data 
+
+sensible component boundaries 
+
+predictable state management 
+
+clean naming 
+
+modular sections 
+
+minimal duplication 
+
+maintainable styling 
+
+clean responsive logic 
+
+Avoid: 
+
+giant monolithic components 
+
+excessive inline styling 
+
+duplicated markup 
+
+magic numbers scattered throughout the code 
+
+unnecessary state 
+
+unnecessary global variables 
+
+dependency bloat 
+
+ 
+
+ 
+
+10. CONTENT ARCHITECTURE 
+
+The recommended portfolio flow is: 
+
+01 — HERO 
+
+Immediate identity and visual positioning. 
+
+02 — SELECTED WORK 
+
+Primary proof of engineering/product capability. 
+
+03 — ENGINEERING / TECHNICAL EXPERTISE 
+
+Demonstrate depth without becoming a keyword wall. 
+
+04 — EXPERIENCE 
+
+Show professional context and progression. 
+
+05 — ABOUT / PHILOSOPHY 
+
+Show the human side and engineering mindset. 
+
+06 — CURRENTLY BUILDING 
+
+Show present momentum, experimentation, and product-building behavior. 
+
+07 — CONTACT 
+
+Simple and direct conversion point.﻿The final section structure may evolve when section-specific prompts are supplied. 
+
+ 
+
+ 
+
+11. HERO REQUIREMENTS 
+
+The hero is the highest-impact visual section.﻿It should communicate within seconds: 
+
+name/identity 
+
+role 
+
+positioning 
+
+personality 
+
+clear next actions 
+
+The hero may use ideas derived from the Mainframe reference, including: 
+
+full viewport composition 
+
+large typography 
+
+cinematic motion 
+
+layered visual structure 
+
+subtle mouse interaction 
+
+controlled text reveal 
+
+typewriter/reveal mechanics 
+
+editorial composition 
+
+precise CTA placement 
+
+But all interaction must serve the content. 
+
+ 
+
+ 
+
+12. HERO CONTENT PHILOSOPHY 
+
+Do not overcrowd the hero with: 
+
+long introduction paragraphs 
+
+20 technology names 
+
+résumé details 
+
+huge skill lists 
+
+generic motivational statements 
+
+The hero should be concise.﻿A useful conceptual structure is: 
+
+identity﻿role﻿positioning﻿short supporting statement﻿primary action﻿secondary action﻿ 
+
+Use the actual identity/content available from the project or supplied portfolio material.﻿Never invent: 
+
+employment history 
+
+clients 
+
+achievements 
+
+metrics 
+
+certifications 
+
+companies 
+
+projects 
+
+awards 
+
+When information is unavailable, use a clearly identifiable placeholder rather than fabricate facts. 
+
+ 
+
+ 
+
+13. HERO INTERACTION PRINCIPLES 
+
+Motion should feel: 
+
+smooth 
+
+deliberate 
+
+premium 
+
+restrained 
+
+Possible interactions include: 
+
+subtle cursor-driven movement 
+
+progressive text reveal 
+
+marquee movement 
+
+image displacement 
+
+scroll-based transitions 
+
+hover state transitions 
+
+Do not make every element animate simultaneously.﻿Use hierarchy: 
+
+primary motion → supporting motion → static content﻿ 
+
+The user should always understand what they are looking at. 
+
+ 
+
+ 
+
+14. VIDEO / MOTION RULES 
+
+When a future section reference specifies background video: 
+
+treat the video as a visual layer, not content 
+
+ensure it does not prevent text readability 
+
+handle loading gracefully 
+
+provide a usable fallback 
+
+avoid layout shifts 
+
+clean up event listeners and timers 
+
+pause or reduce activity when not necessary 
+
+respect reduced-motion preferences 
+
+For mouse-scrubbed video behavior: 
+
+use controlled seeking 
+
+avoid excessive seek calls 
+
+queue/debounce interaction appropriately 
+
+prevent visible playback instability 
+
+provide a deterministic initial frame 
+
+handle slow-loading media gracefully 
+
+ensure touch devices have an appropriate alternative 
+
+Do not implement desktop-only interaction and simply leave broken behavior on mobile. 
+
+ 
+
+ 
+
+15. PROJECTS SECTION 
+
+The project section is the most important credibility section after the hero.﻿Use a combination of: 
+
+interactive gallery + concise project presentation﻿ 
+
+Projects should feel like proof, not decoration.﻿Each project should make it easy to understand: 
+
+what it is 
+
+what problem it solves 
+
+what I built 
+
+technical depth 
+
+architecture or implementation complexity 
+
+notable decisions 
+
+current state 
+
+relevant links 
+
+Depending on the actual project, include: 
+
+overview 
+
+architecture 
+
+technologies 
+
+interesting technical problem 
+
+implementation decisions 
+
+outcome 
+
+Do not turn every project into a long case study by default.﻿Use progressive disclosure. 
+
+ 
+
+ 
+
+16. PROJECT INTERACTION 
+
+Project interactions may include: 
+
+hover transitions 
+
+image reveals 
+
+cursor-following previews 
+
+expandable details 
+
+gallery navigation 
+
+subtle parallax 
+
+slide transitions 
+
+However: 
+
+the interaction must never make project information harder to access.﻿ 
+
+Do not hide essential information exclusively behind hover.﻿All projects must remain usable on touch screens and keyboard navigation. 
+
+ 
+
+ 
+
+17. TECHNICAL EXPERTISE 
+
+Technical depth should be prominent, but not presented as a giant technology cloud.﻿Organize technical information around useful categories such as: 
+
+Software Engineering 
+
+Backend / APIs 
+
+Frontend 
+
+Databases 
+
+Distributed systems / architecture 
+
+Cloud / DevOps 
+
+AI / ML / AI engineering 
+
+Product engineering 
+
+Only use categories supported by actual experience or supplied information.﻿Prefer demonstrating: 
+
+“I solved X using Y because Z”﻿ 
+
+over simply listing: 
+
+Java · Spring Boot · Docker · Kubernetes · Redis · MySQL · etc.﻿ 
+
+Technologies are evidence.﻿They are not the identity. 
+
+ 
+
+ 
+
+18. EXPERIENCE SECTION 
+
+Experience should communicate: 
+
+professional history 
+
+responsibilities 
+
+engineering exposure 
+
+meaningful work 
+
+progression 
+
+technical context 
+
+Avoid turning this into a conventional résumé timeline unless that visual treatment is specifically requested.﻿Use strong hierarchy.﻿The viewer should be able to scan: 
+
+company → role → period → meaningful contribution﻿ 
+
+quickly. 
+
+ 
+
+ 
+
+19. ABOUT SECTION 
+
+The About section should humanize the portfolio without becoming autobiographical.﻿Communicate: 
+
+how I think 
+
+what I enjoy building 
+
+what motivates my engineering decisions 
+
+relationship between software and product thinking 
+
+curiosity and learning mindset 
+
+Avoid generic statements such as: 
+
+“I am passionate about coding and love solving problems.”﻿ 
+
+The writing should sound like an intelligent engineer, not a résumé generator. 
+
+ 
+
+ 
+
+20. CURRENTLY BUILDING 
+
+Use this section to communicate present momentum.﻿Potential structure: 
+
+current project 
+
+experiment 
+
+product concept 
+
+technical exploration 
+
+research/learning direction 
+
+The section should make it obvious that: 
+
+I don't only work on assigned tickets; I also build and explore.﻿ 
+
+Do not exaggerate unfinished work.﻿Clearly distinguish: 
+
+shipped 
+
+in progress 
+
+experimental 
+
+planned 
+
+ 
+
+ 
+
+21. CONTACT / CONVERSION 
+
+Primary conversion actions: 
+
+LinkedIn 
+
+Contact Me 
+
+The contact experience should be extremely simple.﻿Do not force users through a multi-step funnel.﻿Use: 
+
+clear CTA 
+
+obvious interaction feedback 
+
+accessible links 
+
+copy-to-clipboard behavior where relevant 
+
+sensible fallback behavior 
+
+The contact section should feel like the conclusion of the story, not another marketing page. 
+
+ 
+
+ 
+
+22. NAVIGATION 
+
+Navigation should remain minimal.﻿Prefer a concise structure such as: 
+
+Work 
+
+Experience 
+
+About 
+
+Contact 
+
+Plus the primary external/social action where appropriate.﻿The navigation should: 
+
+remain predictable 
+
+support scrolling 
+
+work on keyboard 
+
+work on touch 
+
+have an excellent mobile drawer 
+
+maintain strong visual hierarchy 
+
+A fixed/sticky navbar may be used when appropriate. 
+
+ 
+
+ 
+
+23. SCROLL ARCHITECTURE 
+
+Use: 
+
+Hybrid architecture﻿ 
+
+Meaning: 
+
+Hero 
+
+Highly controlled / full-screen / cinematic. 
+
+Remaining portfolio 
+
+Normal scrolling experience.﻿Do not force snap scrolling across the entire site.﻿Normal content should have natural reading flow.﻿The transition from cinematic hero to functional content is important: 
+
+high visual impact → calm information density﻿ 
+
+ 
+
+ 
+
+24. TYPOGRAPHY 
+
+Typography is one of the primary design tools.﻿Prioritize: 
+
+strong display hierarchy 
+
+readable body text 
+
+controlled line lengths 
+
+intentional tracking 
+
+responsive type scaling 
+
+excellent vertical rhythm 
+
+The previously supplied references may inform typography choices such as: 
+
+Helvetica Neue / Helvetica-style editorial typography 
+
+oversized display text 
+
+restrained supporting typography 
+
+However, if the exact font asset is unavailable, do not invent font files or external asset URLs.﻿Use a reliable system fallback that preserves the intended visual character.﻿Typography must remain readable on: 
+
+desktop 
+
+tablet 
+
+mobile 
+
+ 
+
+ 
+
+25. COLOR 
+
+Use a restrained palette.﻿Default philosophy: 
+
+neutral foundation 
+
+one dominant visual atmosphere 
+
+limited accent usage 
+
+Possible editorial surfaces such as: 
+
+warm cream 
+
+off-white 
+
+charcoal 
+
+black 
+
+restrained accent color 
+
+may be used where appropriate.﻿Do not use color merely to make the page “more exciting.”﻿Use it to establish hierarchy. 
+
+ 
+
+ 
+
+26. SPACING 
+
+Spacing must feel intentional.﻿Maintain: 
+
+consistent section rhythm 
+
+clear content boundaries 
+
+strong whitespace 
+
+predictable gutters 
+
+responsive scaling 
+
+Avoid: 
+
+cramped layouts 
+
+excessive empty space without compositional purpose 
+
+random padding values 
+
+inconsistent alignment 
+
+Whenever possible, establish reusable spacing tokens. 
+
+ 
+
+ 
+
+27. RESPONSIVE DESIGN 
+
+Responsive behavior is part of the design, not a final patch.﻿Design intentionally for: 
+
+desktop 
+
+laptop 
+
+tablet 
+
+mobile 
+
+Do not simply shrink desktop elements.﻿Specifically reconsider on mobile: 
+
+typography 
+
+navigation 
+
+hero composition 
+
+image placement 
+
+marquee behavior 
+
+interaction model 
+
+hover-dependent effects 
+
+spacing 
+
+CTA layout 
+
+project gallery behavior 
+
+Touch devices must have complete functionality. 
+
+ 
+
+ 
+
+28. MOBILE PHILOSOPHY 
+
+Mobile is not: 
+
+desktop but smaller.﻿ 
+
+It is: 
+
+the same design language under different spatial constraints.﻿ 
+
+Preserve: 
+
+identity 
+
+hierarchy 
+
+personality 
+
+interaction intent 
+
+while changing: 
+
+layout 
+
+scale 
+
+density 
+
+interaction mechanics 
+
+When a desktop effect has no meaningful mobile equivalent: 
+
+replace it with an intentional mobile interaction rather than allowing it to degrade.﻿ 
+
+ 
+
+ 
+
+29. ACCESSIBILITY 
+
+Accessibility is mandatory.﻿Implement: 
+
+semantic HTML 
+
+proper heading hierarchy 
+
+accessible buttons 
+
+accessible links 
+
+visible focus states 
+
+keyboard navigation 
+
+meaningful alt text 
+
+sufficient contrast 
+
+reduced-motion support 
+
+screen-reader-friendly labels 
+
+no interaction that depends exclusively on hover 
+
+For menus/modals/drawers: 
+
+manage focus appropriately 
+
+provide escape behavior 
+
+prevent inaccessible keyboard states 
+
+maintain logical tab order 
+
+ 
+
+ 
+
+30. REDUCED MOTION 
+
+Support:﻿prefers-reduced-motion: reduce﻿When enabled: 
+
+remove unnecessary parallax 
+
+simplify transitions 
+
+stop decorative continuous motion 
+
+avoid aggressive reveal animations 
+
+provide equivalent information without motion 
+
+Content must never depend on animation to be understandable. 
+
+ 
+
+ 
+
+31. PERFORMANCE 
+
+The visual quality must not create poor performance.﻿Optimize: 
+
+image loading 
+
+font loading 
+
+video behavior 
+
+animation frequency 
+
+bundle size 
+
+unnecessary re-renders 
+
+DOM complexity 
+
+Use: 
+
+lazy loading where appropriate 
+
+responsive images 
+
+efficient animations 
+
+transform/opacity-based animation where suitable 
+
+appropriate loading strategies 
+
+Do not sacrifice performance for visual gimmicks. 
+
+ 
+
+ 
+
+32. ANIMATION SYSTEM 
+
+The global animation philosophy is: 
+
+Subtle, purposeful, intelligent.﻿ 
+
+Animation should communicate: 
+
+hierarchy 
+
+transition 
+
+interaction 
+
+orientation 
+
+continuity 
+
+Do not animate: 
+
+everything 
+
+continuously 
+
+unnecessarily 
+
+simply because an AI agent can 
+
+Preferred characteristics: 
+
+short 
+
+smooth 
+
+restrained 
+
+consistent 
+
+Avoid excessive spring physics unless specifically required by a reference. 
+
+ 
+
+ 
+
+33. MICRO-INTERACTIONS 
+
+Use micro-interactions to make the site feel crafted.﻿Examples: 
+
+link underline transitions 
+
+button movement 
+
+icon transitions 
+
+hover previews 
+
+subtle cursor response 
+
+menu transitions 
+
+copy-to-clipboard feedback 
+
+active navigation state 
+
+project selection feedback 
+
+Micro-interactions should communicate state.﻿They should not exist merely as decoration. 
+
+ 
+
+ 
+
+34. CONTENT VOICE 
+
+The copy should feel: 
+
+intelligent 
+
+direct 
+
+human 
+
+technically confident 
+
+calm 
+
+Avoid: 
+
+startup buzzword overload 
+
+exaggerated claims 
+
+corporate clichés 
+
+motivational fluff 
+
+fake confidence 
+
+“10x engineer” language 
+
+unnecessary jargon 
+
+Prefer evidence over adjectives.﻿Instead of: 
+
+“Highly skilled expert developer.”﻿ 
+
+prefer concrete proof through: 
+
+projects 
+
+architecture 
+
+engineering decisions 
+
+outcomes 
+
+technical explanations 
+
+ 
+
+ 
+
+35. NO FABRICATION RULE 
+
+Never fabricate personal information.﻿Do not invent: 
+
+projects 
+
+employers 
+
+dates 
+
+clients 
+
+certifications 
+
+awards 
+
+statistics 
+
+user counts 
+
+revenue 
+
+performance gains 
+
+AI capabilities 
+
+production experience 
+
+When required information is unavailable:﻿Use a clearly marked placeholder or derive only from explicitly provided information.﻿Never silently invent realistic-looking content. 
+
+ 
+
+ 
+
+36. ASSET RULE 
+
+The portfolio should not depend on external assets by default.﻿Do not assume the availability of: 
+
+stock photos 
+
+remote videos 
+
+external font files 
+
+proprietary images 
+
+arbitrary image URLs 
+
+Do not invent asset URLs.﻿Prefer: 
+
+CSS 
+
+local assets already in the repository 
+
+inline SVG where appropriate 
+
+CSS-generated visual treatments 
+
+accessible placeholders when actual assets are unavailable 
+
+When a future section prompt explicitly provides an asset: 
+
+treat that asset as authoritative.﻿ 
+
+Do not silently substitute another asset. 
+
+ 
+
+ 
+
+37. VISUAL REFERENCE INTERPRETATION 
+
+When a reference includes an image, video, portrait, marquee, cutout subject, background layer, or decorative visual:﻿Analyze it as a system of: 
+
+composition 
+
+hierarchy 
+
+scale 
+
+positioning 
+
+depth 
+
+contrast 
+
+typography 
+
+motion 
+
+interaction 
+
+responsive transformation 
+
+Do not reduce it to: 
+
+“large image + text.”﻿ 
+
+Recreate the underlying visual relationships. 
+
+ 
+
+ 
+
+38. LAYERING 
+
+For visually complex sections, explicitly manage: 
+
+stacking contexts 
+
+z-index 
+
+clipping 
+
+overflow 
+
+positioning 
+
+pointer-event behavior 
+
+Avoid accidental stacking-context bugs.﻿Visual layers should be intentional.﻿Typical hierarchy may include:﻿Background ↓ Atmosphere / motion ↓ Primary typography ↓ Decorative layer ↓ Foreground visual ↓ Navigation / controls﻿Actual order should follow the section reference. 
+
+ 
+
+ 
+
+39. INTERACTION SAFETY 
+
+Any advanced interaction must have a deterministic fallback.﻿Examples: 
+
+Mouse interaction 
+
+Fallback to static or scroll-based behavior. 
+
+Hover interaction 
+
+Fallback to tap/focus behavior. 
+
+Video 
+
+Fallback to poster/static frame. 
+
+Clipboard 
+
+Fallback to visible email/address. 
+
+Animation 
+
+Fallback to immediate/static content.﻿Never build a core feature that only works under ideal browser conditions. 
+
+ 
+
+ 
+
+40. SEO AND SHARING 
+
+Implement sensible foundational SEO: 
+
+meaningful page title 
+
+meta description 
+
+semantic structure 
+
+appropriate Open Graph metadata 
+
+canonical URL when known 
+
+descriptive link text 
+
+Do not spend excessive implementation effort on SEO gimmicks. 
+
+ 
+
+ 
+
+41. CODE ORGANIZATION 
+
+Prefer an architecture similar to:﻿src/ ├── components/ │ ├── ui/ │ ├── navigation/ │ ├── hero/ │ ├── projects/ │ ├── experience/ │ ├── about/ │ ├── building/ │ └── contact/ │ ├── sections/ │ ├── HeroSection.tsx │ ├── ProjectsSection.tsx │ ├── ExpertiseSection.tsx │ ├── ExperienceSection.tsx │ ├── AboutSection.tsx │ ├── BuildingSection.tsx │ └── ContactSection.tsx │ ├── data/ │ ├── projects.ts │ ├── experience.ts │ └── site.ts │ ├── hooks/ ├── lib/ ├── assets/ └── styles/﻿Adapt this to the repository rather than forcing this exact structure.﻿Keep content/data separate from presentation wherever practical. 
+
+ 
+
+ 
+
+42. DATA-DRIVEN PROJECTS 
+
+Projects should preferably be represented through structured data rather than duplicated component markup.﻿For example:﻿type Project = { title: string; description: string; category?: string; technologies?: string[]; status?: string; links?: { live?: string; github?: string; caseStudy?: string; }; highlights?: string[]; };﻿Use an appropriate schema based on actual portfolio needs. 
+
+ 
+
+ 
+
+43. COMPONENT DESIGN PRINCIPLE 
+
+Create reusable components when: 
+
+the pattern appears multiple times 
+
+the component represents a meaningful UI unit 
+
+reuse improves consistency 
+
+Do not abstract every <div> into a component.﻿Avoid unnecessary architecture for architecture's sake.﻿The code should feel: 
+
+deliberately engineered, not ceremonially engineered.﻿ 
+
+ 
+
+ 
+
+44. GLOBAL VISUAL TOKENS 
+
+Establish reusable tokens for: 
+
+colors 
+
+type scale 
+
+spacing 
+
+borders 
+
+radii 
+
+shadows 
+
+transitions 
+
+breakpoints 
+
+Do not scatter visually critical values throughout the application.﻿However, do not force every section into identical styling.﻿Global tokens establish coherence; section-specific composition creates character. 
+
+ 
+
+ 
+
+45. DESIGN TENSION TO PRESERVE 
+
+The portfolio should intentionally balance: 
+
+Minimal 
+
+with 
+
+Rich 
+
+Technical 
+
+with 
+
+Human 
+
+Premium 
+
+with 
+
+Approachable 
+
+Experimental 
+
+with 
+
+Usable 
+
+Cinematic 
+
+with 
+
+Readable 
+
+Intelligent 
+
+with 
+
+Simple 
+
+Do not resolve every tension by making the design bland.﻿The portfolio should have personality. 
+
+ 
+
+ 
+
+46. THINGS TO AVOID 
+
+Never default to: 
+
+generic dark developer portfolio 
+
+neon purple AI gradients 
+
+floating glass cards everywhere 
+
+excessive rounded cards 
+
+skill percentage bars 
+
+logo walls 
+
+unnecessary testimonials 
+
+fake statistics 
+
+endless project cards 
+
+particle backgrounds 
+
+random 3D objects 
+
+excessive scroll-jacking 
+
+overcomplicated loading screens 
+
+giant “Hello World” 
+
+generic code snippets used as decoration 
+
+stock imagery unrelated to engineering 
+
+excessive badges 
+
+excessive text 
+
+excessive animation 
+
+template-like section layouts 
+
+Avoid anything that makes the site look like it came from an AI portfolio generator. 
+
+ 
+
+ 
+
+47. IMPORTANT ANTI-PATTERN 
+
+Never allow: 
+
+visual sophistication to exceed informational credibility.﻿ 
+
+The stronger the visual design becomes, the stronger the evidence underneath must be.﻿A beautiful portfolio with vague projects is a failure.﻿A beautiful portfolio with strong engineering evidence is the goal. 
+
+ 
+
+ 
+
+48. SECTION CONTRACT 
+
+Every future section prompt must follow this conceptual contract:﻿SECTION PURPOSE PRIMARY AUDIENCE REFERENCE REFERENCE FIDELITY CONTENT LAYOUT TYPOGRAPHY COLOR ASSETS INTERACTIONS ANIMATIONS RESPONSIVE BEHAVIOR ACCESSIBILITY IMPLEMENTATION CONSTRAINTS ACCEPTANCE CRITERIA﻿The section prompt may override local visual behavior, but must remain compatible with this master prompt unless explicitly instructed otherwise. 
+
+ 
+
+ 
+
+49. HOW TO PROCESS FUTURE SECTION PROMPTS 
+
+When given a section prompt: 
+
+Step 1 
+
+Inspect the master portfolio rules. 
+
+Step 2 
+
+Inspect the existing implementation. 
+
+Step 3 
+
+Inspect the section-specific requirements. 
+
+Step 4 
+
+Analyze the reference. 
+
+Step 5 
+
+Identify: 
+
+reusable global elements 
+
+section-specific elements 
+
+intentional deviations 
+
+required interactions 
+
+required responsive behavior 
+
+Step 6 
+
+Implement the section. 
+
+Step 7 
+
+Integrate it with the rest of the portfolio. 
+
+Step 8 
+
+Check that it still feels like the same website.﻿Do not blindly replace the entire page to implement one section. 
+
+ 
+
+ 
+
+50. EXISTING PROJECT RULE 
+
+Before changing code: 
+
+Inspect the repository. 
+
+Identify framework and dependencies. 
+
+Understand current routing. 
+
+Understand existing components. 
+
+Identify styling architecture. 
+
+Identify available assets. 
+
+Check existing responsive behavior. 
+
+Reuse compatible infrastructure. 
+
+Do not destroy existing working functionality unnecessarily.﻿Do not rewrite unrelated files. 
+
+ 
+
+ 
+
+51. IMPLEMENTATION BEHAVIOR 
+
+When implementing: 
+
+build the structural foundation first 
+
+establish typography and spacing 
+
+establish responsive layout 
+
+establish interactions 
+
+then refine motion 
+
+then refine visual details 
+
+Do not spend all implementation effort on animation before the content hierarchy is correct. 
+
+ 
+
+ 
+
+52. VISUAL VALIDATION 
+
+After implementing a section, inspect it at multiple viewport sizes.﻿Check: 
+
+Desktop 
+
+Does the composition match the reference intent? 
+
+Tablet 
+
+Does the hierarchy remain coherent? 
+
+Mobile 
+
+Does the section still feel intentionally designed?﻿Check: 
+
+clipping 
+
+text wrapping 
+
+overflow 
+
+z-index 
+
+button sizes 
+
+readability 
+
+spacing 
+
+navigation 
+
+animations 
+
+touch behavior 
+
+ 
+
+ 
+
+53. ACCEPTANCE CRITERIA 
+
+The portfolio is successful only when all of the following are true: 
+
+Identity 
+
+A visitor can understand the professional identity quickly. 
+
+Visual 
+
+The site feels premium, minimal, technical, human, and intelligent. 
+
+Credibility 
+
+Projects and technical evidence establish engineering capability. 
+
+Product Thinking 
+
+The portfolio communicates that I build products, not merely code. 
+
+AI 
+
+AI capability is present without turning the site into an AI-themed cliché. 
+
+Interaction 
+
+Interactions feel intentional and polished. 
+
+Performance 
+
+The experience remains responsive and lightweight. 
+
+Mobile 
+
+Mobile feels deliberately designed. 
+
+Accessibility 
+
+The site remains usable without relying on visual tricks. 
+
+Content 
+
+No unsupported claims have been invented. 
+
+Consistency 
+
+Different section references still produce one coherent portfolio. 
+
+Conversion 
+
+LinkedIn and direct contact are easy to find. 
+
+ 
+
+ 
+
+54. FINAL QUALITY BAR 
+
+Before declaring the implementation complete, ask: 
+
+Does this look like a generic developer portfolio?﻿ 
+
+If yes: redesign it. 
+
+Does it look like a designer portfolio with a few coding projects attached?﻿ 
+
+If yes: increase engineering evidence. 
+
+Does it look like an AI-generated website?﻿ 
+
+If yes: remove generic AI visual patterns and improve specificity. 
+
+Does every visual decision have a purpose?﻿ 
+
+If no: simplify. 
+
+Does the design have enough personality to be memorable?﻿ 
+
+If no: strengthen the art direction without adding clutter. 
+
+Can an experienced engineer quickly understand what I actually build?﻿ 
+
+If no: improve information architecture and technical evidence. 
+
+Can a recruiter understand my profile quickly?﻿ 
+
+If no: improve scanability. 
+
+Can a freelance client understand what I can build?﻿ 
+
+If no: improve project clarity and contact flow. 
+
+ 
+
+ 
+
+55. FINAL DESIGN PRINCIPLE 
+
+The portfolio should communicate: 
+
+“This person can build serious software, thinks like a product builder, understands modern AI, and has enough design sensibility to present their work exceptionally well.”﻿ 
+
+It should NOT communicate: 
+
+“Look how many effects I can put on a webpage.”﻿ 
+
+ 
+
+ 
+
+56. FINAL INSTRUCTION 
+
+Treat this prompt as the global source of truth for the entire portfolio.﻿Do not optimize individual sections in isolation.﻿Every section must contribute to the overall narrative:﻿ATTENTION ↓ IDENTITY ↓ CREDIBILITY ↓ ENGINEERING DEPTH ↓ PRODUCT THINKING ↓ HUMANITY ↓ CURRENT MOMENTUM ↓ CONNECTION﻿The final product should be:﻿minimal enough to feel premium,﻿technical enough to feel credible,﻿human enough to feel memorable,﻿and distinctive enough to feel authored rather than generated. 

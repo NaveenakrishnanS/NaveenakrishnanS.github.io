@@ -1,0 +1,629 @@
+/* Geist and Geist Mono (SIL Open Font License), self-hosted through @fontsource-variable and bundled
+   by Vite, so no external request is made. Imported here rather than in main.tsx because
+   src/not-found.ts imports this same stylesheet, which puts the fonts on 404.html too. */
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+
+/* Scan only src/ — the vendored .claude/skills markdown would otherwise bloat the CSS. */
+@import 'tailwindcss' source('..');
+
+/* ------------------------------------------------------------------
+   Design tokens — single source of truth for color, type and motion.
+   Ink = cinematic dark surfaces (hero, contact). Paper = editorial cream.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #121211;
+  --color-ink-2: #1c1b19;
+  --color-ink-fg: #edeae3;
+  --color-ink-muted: #9b968c;
+  --color-ink-line: rgb(237 234 227 / 0.12);
+  /* Interactive borders only (ghost pills). The 12% rule above is too faint to read as a control. */
+  --color-ink-line-strong: rgb(237 234 227 / 0.4);
+
+  --color-paper: #f4f1ea;
+  --color-paper-2: #ebe6db;
+  --color-paper-fg: #161513;
+  --color-paper-muted: #66625a;
+  --color-paper-line: rgb(22 21 19 / 0.12);
+  --color-paper-line-strong: rgb(22 21 19 / 0.5);
+
+  --color-accent: #d9481c;
+
+  /* Bundled above, so the type system is the same on every platform. Helvetica Neue used to fall back
+     to Arial on Windows and Android, which is where the tracking below was being read wrong. */
+  --font-sans: 'Geist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Tracking is tuned for Geist, which sets tighter than Helvetica Neue did at the same value.
+     Measured at 1440 / 820 / 390: the old -0.055em display closed the gaps in "nn" and "hn". */
+  --text-display: clamp(2.75rem, 9vw, 9.5rem);
+  --text-display--line-height: 0.86;
+  --text-display--letter-spacing: -0.045em;
+  --text-headline: clamp(2.25rem, 6vw, 5.5rem);
+  --text-headline--line-height: 0.95;
+  --text-headline--letter-spacing: -0.035em;
+  --text-title: clamp(1.5rem, 2.6vw, 2.25rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.02em;
+  --text-lede: clamp(1.125rem, 1.6vw, 1.375rem);
+  --text-lede--line-height: 1.45;
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.06em;
+  --text-ui: 0.9375rem;
+  --text-brand: 1.0625rem;
+  /* Mono body metadata (stack and tool lines). Sits a step above .meta, which is the 12px uppercase
+     label; this one stays sentence case and is read as content, not as a label. */
+  --text-mono: 0.8125rem;
+  --text-mono--line-height: 1.5;
+  --text-statement: clamp(1.5rem, 3.2vw, 3rem);
+  --text-statement--line-height: 1.2;
+  --text-statement--letter-spacing: -0.025em;
+  /* The minimum keeps the email address on one line down to 360px (see ContactSection): in Geist it
+     measures 319px at the 24px floor, against 328px of shell width there. */
+  --text-contact: clamp(1.5rem, 5.5vw, 4.5rem);
+  --text-contact--line-height: 1.15;
+  --text-contact--letter-spacing: -0.035em;
+  --text-menu: 2.75rem;
+  --text-menu--line-height: 1;
+  --text-menu--letter-spacing: -0.04em;
+  --text-numeral: 4.5rem;
+  --text-numeral--line-height: 1;
+  --text-numeral--letter-spacing: -0.05em;
+  --text-error-code: clamp(7.5rem, 27vw, 21rem);
+  --text-error-code--line-height: 0.8;
+  --text-error-code--letter-spacing: -0.05em;
+
+  --radius-frame: 6px;
+
+  /* Pinned explicitly because src/lib/media.ts mirrors it for JS. */
+  --breakpoint-lg: 64rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Non-utility tokens used by component classes below. */
+:root {
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --shell-max: 92rem;
+  --section-y: clamp(5rem, 12vw, 10rem);
+  /* Top padding of the first section after the hero: the hand-off should not read as an empty band. */
+  --section-y-lead: clamp(3rem, 6vw, 5rem);
+  --nav-h: 4.5rem;
+  --z-nav: 50;
+  --z-skip: 60;
+  --z-drawer: 70;
+  --dur-fast: 200ms;
+  --dur-base: 500ms;
+  --dur-slow: 900ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-paper-fg);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink-fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .section-y {
+    padding-block: var(--section-y);
+  }
+  /* Section rhythm is decided here, not per section, because sections can be left out (lib/content.ts).
+     Consecutive sections on the plain paper surface share one gap; a tinted or ink surface pads itself. */
+  .hero + .section-y {
+    padding-top: var(--section-y-lead);
+  }
+  .section-y[data-surface='paper']:not(.bg-paper-2) + .section-y[data-surface='paper']:not(.bg-paper-2) {
+    padding-top: 0;
+  }
+
+  /* Small uppercase mono metadata line. */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    line-height: var(--text-meta--line-height);
+    letter-spacing: var(--text-meta--letter-spacing);
+    text-transform: uppercase;
+  }
+
+  /* Action pills (Mainframe reference). */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    min-height: 2.75rem;
+    padding: 0 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid currentColor;
+    font-size: var(--text-ui);
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease,
+      border-color var(--dur-fast) ease,
+      transform var(--dur-fast) ease;
+  }
+  .pill:active {
+    transform: scale(0.98);
+  }
+  .pill-solid-light {
+    background: var(--color-ink-fg);
+    border-color: var(--color-ink-fg);
+    color: var(--color-ink);
+  }
+  .pill-solid-light:hover {
+    background: transparent;
+    color: var(--color-ink-fg);
+  }
+  .pill-ghost-light {
+    border-color: var(--color-ink-line-strong);
+    color: var(--color-ink-fg);
+  }
+  .pill-ghost-light:hover {
+    border-color: var(--color-ink-fg);
+  }
+  .pill-ghost-dark {
+    border-color: var(--color-paper-line-strong);
+    color: var(--color-paper-fg);
+  }
+  .pill-ghost-dark:hover {
+    border-color: var(--color-paper-fg);
+  }
+  /* The paper twin of .pill-solid-light, for the primary action on a cream surface. */
+  .pill-solid-dark {
+    background: var(--color-paper-fg);
+    border-color: var(--color-paper-fg);
+    color: var(--color-paper);
+  }
+  .pill-solid-dark:hover {
+    background: transparent;
+    color: var(--color-paper-fg);
+  }
+
+  /* Underline that draws in from the left on hover/focus. */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--dur-base) var(--ease-out-expo);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible,
+  .link-draw[aria-current='true'] {
+    background-size: 100% 1px;
+  }
+  /* The accent's one job: "you are here / this is focused". A 1px non-text indicator, so the 3:1 bar
+     applies, and the accent is measured at 3.8:1 on paper and 4.37:1 on ink. */
+  .link-draw[aria-current='true'] {
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  }
+
+  /* Scroll-entry reveal. Content is visible by default; JS opts it into the animation. */
+  .reveal[data-reveal='pending'] {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .reveal[data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--dur-slow) var(--ease-out-expo),
+      transform var(--dur-slow) var(--ease-out-expo);
+    transition-delay: calc(var(--reveal-index, 0) * 80ms);
+  }
+
+  /* Line mask reveal for display type in the hero. */
+  .mask-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.06em;
+    margin-bottom: -0.06em;
+  }
+  .mask-line > span {
+    display: block;
+    animation: rise var(--dur-slow) var(--ease-out-expo) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .fade-in {
+    animation: fade var(--dur-slow) var(--ease-out-expo) both;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  /* currentColor, not accent: the caret is part of the word being typed, not a state indicator. */
+  .caret {
+    display: inline-block;
+    width: 0.08em;
+    height: 0.9em;
+    margin-left: 0.06em;
+    background: currentColor;
+    vertical-align: -0.05em;
+    animation: blink 1s steps(1) infinite;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+  .marquee:hover .marquee-track,
+  .marquee[data-paused] .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Status dots for project / building states. Neutral by design: the accent means "current", not
+     "in progress", and a second hue would be a second accent. Fill reads as completeness instead:
+     solid, half, outline, faint outline. Every dot is aria-hidden; StatusTag prints the word. */
+  .status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    flex: none;
+    background: currentColor;
+  }
+  .status-dot[data-status='in-progress'] {
+    background: linear-gradient(to right, currentColor 50%, transparent 50%);
+    box-shadow: inset 0 0 0 1.5px currentColor;
+  }
+  .status-dot[data-status='experimental'] {
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px currentColor;
+  }
+  .status-dot[data-status='planned'] {
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px currentColor;
+    opacity: 0.6;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Hero atmosphere. Pointer position arrives as --px/--py (0..1) from usePointerField.
+   ------------------------------------------------------------------ */
+.hero {
+  --px: 0.62;
+  --py: 0.42;
+  --dx: 0;
+  --dy: 0;
+  --grid: clamp(4rem, 8vw, 7.5rem);
+  --spot-x: calc(var(--px) * 100%);
+  --spot-y: calc(var(--py) * 100%);
+}
+/* Caps the display size so the longest line of the name (--fit-ch characters) fits the shell width.
+   0.5em per character is a safe upper bound: Geist at -0.045em measures 0.484em per character for
+   this name, which leaves about 12px of slack at 390. Re-measure if the font or tracking changes. */
+.hero-name {
+  font-size: min(
+    var(--text-display),
+    calc((min(100vw, var(--shell-max)) - 2 * var(--gutter)) / (var(--fit-ch, 8) * 0.5))
+  );
+}
+.hero-grid,
+.hero-lens {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: var(--grid) var(--grid);
+  background-position: calc(var(--gutter) - 1px) 0;
+}
+.hero-grid {
+  --line: rgb(237 234 227 / 0.045);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 70%, transparent);
+}
+/* A brighter copy of the grid revealed only inside a soft circle around the pointer. */
+.hero-lens {
+  --line: rgb(237 234 227 / 0.16);
+  mask-image: radial-gradient(circle 22rem at var(--spot-x) var(--spot-y), #000, transparent 70%);
+}
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 34rem at var(--spot-x) var(--spot-y),
+    rgb(217 72 28 / 0.09),
+    transparent 70%
+  );
+}
+.hero-axis {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+  opacity: 0;
+  transition: opacity var(--dur-base) ease;
+}
+.hero[data-pointer='active'] .hero-axis {
+  opacity: 1;
+}
+/* Each axis is a full-size layer, so a % translate is relative to the hero's own box. */
+.hero-axis-x,
+.hero-axis-y {
+  position: absolute;
+  inset: 0;
+  border: 0 solid rgb(237 234 227 / 0.14);
+}
+.hero-axis-x {
+  border-top-width: 1px;
+  transform: translateY(calc(var(--py) * 100%));
+}
+.hero-axis-y {
+  border-left-width: 1px;
+  transform: translateX(calc(var(--px) * 100%));
+}
+.hero-parallax {
+  transform: translate3d(calc(var(--dx) * -10px), calc(var(--dy) * -6px), 0);
+  transition: transform 1200ms var(--ease-out-expo);
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero-axis {
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallax {
+    transform: none;
+  }
+  .hero-axis {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   404 page (404.html, src/NotFound.tsx). Always ink, regardless of the main page's surfaces.
+   Animates transform, opacity and clip-path only.
+   ------------------------------------------------------------------ */
+.nf-body {
+  background: var(--color-ink);
+  color: var(--color-ink-fg);
+  color-scheme: dark;
+}
+/* No background image is supplied, so a soft radial gradient stands in for a blurred photo. */
+.nf-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 40%, rgb(217 72 28 / 0.07), transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 40%, var(--color-ink-2), var(--color-ink) 75%);
+}
+/* The homepage control reuses .pill (@layer components, so it is in this sheet for 404.html too)
+   instead of a square box of its own: every other control in the project is a rounded-full pill. */
+.nf-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: currentColor;
+}
+/* Text link with a 44px tap target; the underline draws in with a transform. */
+.nf-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  text-align: left;
+  cursor: pointer;
+}
+.nf-link > span {
+  position: relative;
+}
+.nf-link > span::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+.nf-link:hover > span::after,
+.nf-link:focus-visible > span::after {
+  transform: none;
+}
+
+/* The numerals: an invisible base copy sizes the box; three copies are clipped into slices that share edges.
+   The band (57% to 79% of the box) sits over the 4's crossbar and shifts left by about one stroke width.
+   Side insets are negative so glyph overhang is never cut. Keep the keyframes below in step with these cuts. */
+.nf-code {
+  position: relative;
+  color: var(--color-ink-fg);
+}
+.nf-code-base {
+  display: block;
+  visibility: hidden;
+}
+.nf-slice {
+  position: absolute;
+  inset: 0;
+}
+.nf-slice-top {
+  clip-path: inset(0 -0.25em 43% -0.25em);
+}
+.nf-slice-band {
+  clip-path: inset(57% -0.25em 21% -0.25em);
+  transform: translateX(-0.1em);
+}
+.nf-slice-bottom {
+  clip-path: inset(79% -0.25em 0 -0.25em);
+}
+/* Every 6s the band briefly jumps (about 0.3s), then holds still. The static shift stays without motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .nf-slice {
+    animation-duration: 6s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1);
+  }
+  .nf-slice-top {
+    animation-name: nf-top;
+  }
+  .nf-slice-band {
+    animation-name: nf-band;
+  }
+  .nf-slice-bottom {
+    animation-name: nf-bottom;
+  }
+}
+@keyframes nf-top {
+  0%,
+  94%,
+  100% {
+    clip-path: inset(0 -0.25em 43% -0.25em);
+  }
+  95% {
+    clip-path: inset(0 -0.25em 66% -0.25em);
+  }
+  96.5% {
+    clip-path: inset(0 -0.25em 34% -0.25em);
+  }
+  98% {
+    clip-path: inset(0 -0.25em 52% -0.25em);
+  }
+}
+@keyframes nf-band {
+  0%,
+  94%,
+  100% {
+    clip-path: inset(57% -0.25em 21% -0.25em);
+    transform: translateX(-0.1em);
+  }
+  95% {
+    clip-path: inset(34% -0.25em 46% -0.25em);
+    transform: translateX(0.08em);
+  }
+  96.5% {
+    clip-path: inset(66% -0.25em 12% -0.25em);
+    transform: translateX(-0.16em);
+  }
+  98% {
+    clip-path: inset(48% -0.25em 28% -0.25em);
+    transform: translateX(-0.05em);
+  }
+}
+@keyframes nf-bottom {
+  0%,
+  94%,
+  100% {
+    clip-path: inset(79% -0.25em 0 -0.25em);
+  }
+  95% {
+    clip-path: inset(54% -0.25em 0 -0.25em);
+  }
+  96.5% {
+    clip-path: inset(88% -0.25em 0 -0.25em);
+  }
+  98% {
+    clip-path: inset(72% -0.25em 0 -0.25em);
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Print: show everything, drop chrome and decorative layers. */
+@media print {
+  .reveal,
+  .mask-line > span,
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  [data-site-header],
+  #mobile-drawer,
+  .hero-grid,
+  .hero-lens,
+  .hero-glow,
+  .hero-axis,
+  .marquee,
+  .caret {
+    display: none !important;
+  }
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    animation-delay: 0ms !important;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .caret {
+    display: none;
+  }
+  /* Reveals hide via opacity, not animation, so the duration overrides above cannot restore them.
+     Reset them here as well as in Reveal.tsx, so content never depends on JS running. */
+  .reveal,
+  .reveal[data-reveal='pending'] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
